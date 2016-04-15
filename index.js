@@ -35,7 +35,7 @@ var gulpSass = function gulpSass(options, sync) {
 
     opts = assign({}, options);
 
-    if (options.data && typeof opts.data === 'string') {
+    if (opts.data && typeof opts.data === 'string') {
       opts.data = options.data + file.contents.toString();
     } else {
       opts.data = file.contents.toString();
