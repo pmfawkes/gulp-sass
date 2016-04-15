@@ -35,7 +35,12 @@ var gulpSass = function gulpSass(options, sync) {
 
 
     opts = assign({}, options);
-    opts.data = file.contents.toString();
+    
+    if (options.data && typeof opts.data === 'string') {
+      opts.data = options.data + file.contents.toString();
+    } else {
+      opts.data = file.contents.toString();
+    }
 
     // we set the file path here so that libsass can correctly resolve import paths
     opts.file = file.path;
